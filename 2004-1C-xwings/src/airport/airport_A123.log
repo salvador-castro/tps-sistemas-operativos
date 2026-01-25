@@ -1,0 +1,207 @@
+[2026-01-25 17:15:57] [A123] [INFO] Logger initialized for A123
+[2026-01-25 17:15:57] [A123] [INFO] Airport A123 starting on port 8090
+[2026-01-25 17:15:57] [A123] [INFO] Runways: 4, Terminal quota: 10
+[2026-01-25 17:15:57] [A123] [INFO] Runway 0 thread started (type: 0)
+[2026-01-25 17:15:57] [A123] [INFO] Runway 1 thread started (type: 2)
+[2026-01-25 17:15:57] [A123] [INFO] Runway 2 thread started (type: 2)
+[2026-01-25 17:15:57] [A123] [INFO] Runway 3 thread started (type: 1)
+[2026-01-25 17:15:57] [A123] [INFO] Airport listening on port 8090
+[2026-01-25 17:16:02] [A123] [INFO] New client connected from 127.0.0.1:50007
+[2026-01-25 17:16:02] [A123] [INFO] Sent handshake to client
+[2026-01-25 17:16:02] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 17:16:02] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 17:16:02] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 17:16:02] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 17:16:02] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 17:16:02] [A123] [EVENT] Plane P12345 enqueued to runway 0 (queue size: 1)
+[2026-01-25 17:16:02] [A123] [EVENT] Runway 0 granted to plane P12345 (landing)
+[2026-01-25 17:16:03] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 17:16:03] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 17:16:05] [A123] [EVENT] Runway 0 operation complete for plane P12345
+[2026-01-25 17:18:35] [A123] [EVENT] Plane P12345 requesting runway (takeoff, normal)
+[2026-01-25 17:18:35] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 17:18:35] [A123] [EVENT] Runway 1 granted to plane P12345 (takeoff)
+[2026-01-25 17:18:36] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 17:18:36] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 17:18:36] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 17:18:36] [A123] [INFO] New client connected from 127.0.0.1:50017
+[2026-01-25 17:18:36] [A123] [INFO] Sent handshake to client
+[2026-01-25 17:18:36] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 17:18:36] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 17:18:36] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 17:18:36] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 17:18:36] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 17:18:36] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 17:18:37] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 17:18:37] [A123] [EVENT] Runway 1 granted to plane P12345 (landing)
+[2026-01-25 17:18:38] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 17:18:38] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 17:18:40] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 17:21:04] [A123] [INFO] Logger initialized for A123
+[2026-01-25 17:21:04] [A123] [INFO] Airport A123 starting on port 8090
+[2026-01-25 17:21:04] [A123] [INFO] Runways: 4, Terminal quota: 10
+[2026-01-25 17:21:04] [A123] [INFO] Runway 0 thread started (type: 0)
+[2026-01-25 17:21:04] [A123] [INFO] Runway 1 thread started (type: 2)
+[2026-01-25 17:21:04] [A123] [INFO] Runway 2 thread started (type: 2)
+[2026-01-25 17:21:04] [A123] [INFO] Runway 3 thread started (type: 1)
+[2026-01-25 17:21:04] [A123] [ERROR] Failed to bind to port 8090
+[2026-01-25 17:21:09] [A123] [EVENT] Plane P12345 requesting runway (takeoff, normal)
+[2026-01-25 17:21:09] [A123] [EVENT] Plane P12345 enqueued to runway 2 (queue size: 1)
+[2026-01-25 17:21:09] [A123] [EVENT] Runway 2 granted to plane P12345 (takeoff)
+[2026-01-25 17:21:10] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 17:21:10] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 17:21:10] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 17:21:10] [A123] [INFO] New client connected from 127.0.0.1:50027
+[2026-01-25 17:21:10] [A123] [INFO] Sent handshake to client
+[2026-01-25 17:21:10] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 17:21:10] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 17:21:10] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 17:21:10] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 17:21:10] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 17:21:10] [A123] [EVENT] Plane P12345 enqueued to runway 2 (queue size: 1)
+[2026-01-25 17:21:11] [A123] [EVENT] Runway 2 operation complete for plane P12345
+[2026-01-25 17:21:11] [A123] [EVENT] Runway 2 granted to plane P12345 (landing)
+[2026-01-25 17:21:12] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 17:21:12] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 17:21:12] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 17:21:14] [A123] [EVENT] Runway 2 operation complete for plane P12345
+[2026-01-25 17:22:45] [A123] [INFO] New client connected from 127.0.0.1:50035
+[2026-01-25 17:22:45] [A123] [INFO] Sent handshake to client
+[2026-01-25 17:22:45] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 17:22:45] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 17:22:45] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 17:22:45] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 17:22:45] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 17:22:45] [A123] [EVENT] Plane P12345 enqueued to runway 0 (queue size: 1)
+[2026-01-25 17:22:45] [A123] [EVENT] Runway 0 granted to plane P12345 (landing)
+[2026-01-25 17:22:46] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 17:22:46] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 17:22:48] [A123] [EVENT] Runway 0 operation complete for plane P12345
+[2026-01-25 17:22:49] [A123] [INFO] Logger initialized for A123
+[2026-01-25 17:22:49] [A123] [INFO] Airport A123 starting on port 8090
+[2026-01-25 17:22:49] [A123] [INFO] Runways: 4, Terminal quota: 10
+[2026-01-25 17:22:49] [A123] [INFO] Runway 0 thread started (type: 0)
+[2026-01-25 17:22:49] [A123] [INFO] Runway 1 thread started (type: 2)
+[2026-01-25 17:22:49] [A123] [INFO] Runway 2 thread started (type: 2)
+[2026-01-25 17:22:49] [A123] [INFO] Runway 3 thread started (type: 1)
+[2026-01-25 17:22:49] [A123] [ERROR] Failed to bind to port 8090
+[2026-01-25 17:23:13] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 17:24:48] [A123] [INFO] Logger initialized for A123
+[2026-01-25 17:24:48] [A123] [INFO] Airport A123 starting on port 8090
+[2026-01-25 17:24:48] [A123] [INFO] Runways: 4, Terminal quota: 10
+[2026-01-25 17:24:48] [A123] [INFO] Runway 0 thread started (type: 0)
+[2026-01-25 17:24:48] [A123] [INFO] Runway 1 thread started (type: 2)
+[2026-01-25 17:24:48] [A123] [INFO] Runway 2 thread started (type: 2)
+[2026-01-25 17:24:48] [A123] [INFO] Runway 3 thread started (type: 1)
+[2026-01-25 17:24:48] [A123] [INFO] Airport listening on port 8090
+[2026-01-25 17:24:57] [A123] [INFO] New client connected from 127.0.0.1:50049
+[2026-01-25 17:24:57] [A123] [INFO] Sent handshake to client
+[2026-01-25 17:24:57] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 17:24:57] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 17:24:57] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 17:24:57] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 17:24:57] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 17:24:57] [A123] [EVENT] Plane P12345 enqueued to runway 0 (queue size: 1)
+[2026-01-25 17:24:57] [A123] [EVENT] Runway 0 granted to plane P12345 (landing)
+[2026-01-25 17:24:58] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 17:24:58] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 17:25:00] [A123] [EVENT] Runway 0 operation complete for plane P12345
+[2026-01-25 17:27:28] [A123] [EVENT] Plane P12345 requesting runway (takeoff, normal)
+[2026-01-25 17:27:28] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 17:27:28] [A123] [EVENT] Runway 1 granted to plane P12345 (takeoff)
+[2026-01-25 17:27:29] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 17:27:29] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 17:27:29] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 17:27:29] [A123] [INFO] New client connected from 127.0.0.1:50062
+[2026-01-25 17:27:29] [A123] [INFO] Sent handshake to client
+[2026-01-25 17:27:29] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 17:27:29] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 17:27:29] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 17:27:29] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 17:27:29] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 17:27:29] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 17:27:30] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 17:27:30] [A123] [EVENT] Runway 1 granted to plane P12345 (landing)
+[2026-01-25 17:27:31] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 17:27:31] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 17:27:33] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 17:30:03] [A123] [EVENT] Plane P12345 requesting runway (takeoff, normal)
+[2026-01-25 17:30:03] [A123] [EVENT] Plane P12345 enqueued to runway 2 (queue size: 1)
+[2026-01-25 17:30:03] [A123] [EVENT] Runway 2 granted to plane P12345 (takeoff)
+[2026-01-25 17:30:04] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 17:30:04] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 17:30:04] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 17:30:04] [A123] [INFO] New client connected from 127.0.0.1:50069
+[2026-01-25 17:30:04] [A123] [INFO] Sent handshake to client
+[2026-01-25 17:30:04] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 17:30:04] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 17:30:04] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 17:30:04] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 17:30:04] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 17:30:04] [A123] [EVENT] Plane P12345 enqueued to runway 2 (queue size: 1)
+[2026-01-25 17:30:05] [A123] [EVENT] Runway 2 operation complete for plane P12345
+[2026-01-25 17:30:05] [A123] [EVENT] Runway 2 granted to plane P12345 (landing)
+[2026-01-25 17:30:06] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 17:30:06] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 17:30:06] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 17:30:08] [A123] [EVENT] Runway 2 operation complete for plane P12345
+[2026-01-25 18:08:38] [A123] [INFO] Logger initialized for A123
+[2026-01-25 18:08:38] [A123] [INFO] Airport A123 starting on port 8090
+[2026-01-25 18:08:38] [A123] [INFO] Runways: 4, Terminal quota: 10
+[2026-01-25 18:08:38] [A123] [INFO] Runway 0 thread started (type: 0)
+[2026-01-25 18:08:38] [A123] [INFO] Runway 1 thread started (type: 2)
+[2026-01-25 18:08:38] [A123] [INFO] Runway 2 thread started (type: 2)
+[2026-01-25 18:08:38] [A123] [INFO] Runway 3 thread started (type: 1)
+[2026-01-25 18:08:38] [A123] [INFO] Airport listening on port 8090
+[2026-01-25 18:08:44] [A123] [INFO] New client connected from 127.0.0.1:50185
+[2026-01-25 18:08:44] [A123] [INFO] Sent handshake to client
+[2026-01-25 18:08:44] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 18:08:44] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 18:08:44] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 18:08:44] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 18:08:44] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 18:08:44] [A123] [EVENT] Plane P12345 enqueued to runway 0 (queue size: 1)
+[2026-01-25 18:08:44] [A123] [EVENT] Runway 0 granted to plane P12345 (landing)
+[2026-01-25 18:08:45] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 18:08:45] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 18:08:47] [A123] [EVENT] Runway 0 operation complete for plane P12345
+[2026-01-25 18:11:16] [A123] [EVENT] Plane P12345 requesting runway (takeoff, normal)
+[2026-01-25 18:11:16] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 18:11:16] [A123] [EVENT] Runway 1 granted to plane P12345 (takeoff)
+[2026-01-25 18:11:17] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 18:11:17] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 18:11:17] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 18:11:17] [A123] [INFO] New client connected from 127.0.0.1:50194
+[2026-01-25 18:11:17] [A123] [INFO] Sent handshake to client
+[2026-01-25 18:11:17] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 18:11:17] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 18:11:17] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 18:11:17] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 18:11:17] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 18:11:17] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 18:11:18] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 18:11:18] [A123] [EVENT] Runway 1 granted to plane P12345 (landing)
+[2026-01-25 18:11:19] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 18:11:19] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 18:11:21] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 18:12:19] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 18:15:04] [A123] [INFO] Logger initialized for A123
+[2026-01-25 18:15:04] [A123] [INFO] Airport A123 starting on port 8090
+[2026-01-25 18:15:04] [A123] [INFO] Runways: 4, Terminal quota: 10
+[2026-01-25 18:15:04] [A123] [INFO] Runway 0 thread started (type: 0)
+[2026-01-25 18:15:04] [A123] [INFO] Runway 1 thread started (type: 2)
+[2026-01-25 18:15:04] [A123] [INFO] Runway 2 thread started (type: 2)
+[2026-01-25 18:15:04] [A123] [INFO] Runway 3 thread started (type: 1)
+[2026-01-25 18:15:04] [A123] [INFO] Airport listening on port 8090
+[2026-01-25 18:15:11] [A123] [INFO] New client connected from 127.0.0.1:50220
+[2026-01-25 18:15:11] [A123] [INFO] Sent handshake to client
+[2026-01-25 18:15:11] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 18:15:11] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 18:15:11] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 18:15:11] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 18:15:11] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 18:15:11] [A123] [EVENT] Plane P12345 enqueued to runway 0 (queue size: 1)
+[2026-01-25 18:15:11] [A123] [EVENT] Runway 0 granted to plane P12345 (landing)
+[2026-01-25 18:15:12] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 18:15:12] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 18:15:14] [A123] [EVENT] Runway 0 operation complete for plane P12345

@@ -40,6 +40,7 @@ void log_message(LogLevel level, const char *format, ...) {
     break;
   }
 
+  // Write to log file
   fprintf(log_file, "[%s] [%s] [%s] ", time_str, component_name, level_str);
 
   va_list args;
@@ -49,6 +50,17 @@ void log_message(LogLevel level, const char *format, ...) {
 
   fprintf(log_file, "\n");
   fflush(log_file);
+
+  // Also write to console (stdout)
+  printf("[%s] [%s] [%s] ", time_str, component_name, level_str);
+
+  va_list args2;
+  va_start(args2, format);
+  vprintf(format, args2);
+  va_end(args2);
+
+  printf("\n");
+  fflush(stdout);
 }
 
 void log_close() {

@@ -29,6 +29,7 @@ void *handle_client(void *arg) {
 
   char buffer[4096];
   char plane_id[7] = "";
+  int plane_has_landed = 0; // Track if plane has landed at this airport
 
   // 1. Send handshake: AER: AeroPuerto Listo. Id: XXXX Protocolo v1.0\r\n
   snprintf(buffer, sizeof(buffer),
@@ -111,9 +112,8 @@ void *handle_client(void *arg) {
     case MSG_PEDIDO_PISTA:
     case MSG_PEDIDO_PISTA_EMERGENCIA: {
       int is_emergency = (msg_type == MSG_PEDIDO_PISTA_EMERGENCIA);
-      // Determine if landing or takeoff based on terminal status
-      // Simplified: assume planes in terminal are taking off
-      int is_landing = (terminal_count == 0);
+      // First runway request = landing, subsequent = takeoff
+      int is_landing = !plane_has_landed;
 
       log_message(LOG_EVENT, "Plane %s requesting runway (%s, %s)", plane_id,
                   is_landing ? "landing" : "takeoff",
@@ -124,6 +124,8 @@ void *handle_client(void *arg) {
       if (runway < 0) {
         log_message(LOG_ERROR, "Failed to assign runway to plane %s", plane_id);
         // Could send MSG_PISTA_CERRADA here
+      } else if (is_landing) {
+        plane_has_landed = 1; // Mark that plane has landed
       }
       // MSG_PISTA_OTORGADA will be sent by runway thread
       break;

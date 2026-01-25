@@ -203,10 +203,18 @@ int main(int argc, char *argv[]) {
       sleep(1); // Simulate landing
     }
 
-    // Refuel if needed
-    if (current_fuel < 2000) {
-      log_message(LOG_INFO, "Low fuel (%u), requesting refuel", current_fuel);
+    // Refuel - ALWAYS for planes in transit (Aclaraciones line 42)
+    // "Los aviones en transito, aterrizan, realizan recarga de combustible..."
+    if (current_airport_idx < config.num_airports - 1) {
+      log_message(LOG_INFO, "In transit, refueling (current: %u gallons)",
+                  current_fuel);
       request_fuel(airport_fd);
+    } else {
+      // Last airport - only refuel if low
+      if (current_fuel < 2000) {
+        log_message(LOG_INFO, "Low fuel (%u), requesting refuel", current_fuel);
+        request_fuel(airport_fd);
+      }
     }
 
     // Request takeoff if not last airport
