@@ -1,11 +1,10 @@
 TARGET = plane
+OBJS = main.o
 
 all: $(TARGET)
 
-SRCS = main.c
-OBJS = $(SRCS:.c=.o)
-
 include ../common.mk
 
-$(TARGET): $(OBJS) $(COMMON_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+$(TARGET): $(OBJS) $(COMMON_OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(COMMON_OBJS)
+
