@@ -1,0 +1,401 @@
+X-W.I.N.G.S.
+(The Beginning of an empire)
+Protocolo v1.0 Rev 040326
+1er. cuatrimestre 2004
+Contents
+1 Notas preliminares 3
+2 Estructuras 3
+2.1 Comunicaci´on Avi´on-Aeropuerto . . . . . . . . . . . . . . . . . . 3
+2.1.1 HandShake . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2.1.2 Header . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2.1.3 Ingreso a terminal . . . . . . . . . . . . . . . . . . . . . . 4
+2.1.4 Ok ingreso aceptado . . . . . . . . . . . . . . . . . . . . . 4
+2.1.5 Pedido pista . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.1.6 pedido pista en emergencia . . . . . . . . . . . . . . . . . 4
+2.1.7 Pista otorgada . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.1.8 Pista cerrada . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.1.9 Pedido combustible . . . . . . . . . . . . . . . . . . . . . . 5
+2.1.10 Datos combustible . . . . . . . . . . . . . . . . . . . . . . 5
+2.1.11 Pedido ruta . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+2.1.12 Ruta . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+2.1.13 Aeropuerto desconocido . . . . . . . . . . . . . . . . . . . 6
+2.1.14 Ingreso espacio a´ereo . . . . . . . . . . . . . . . . . . . . . 6
+2.1.15 Abandono espacio a´ereo . . . . . . . . . . . . . . . . . . . 7
+2.1.16 Ok . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+2.2 Comunicaci´on Avi´on-Estaci´on de combustible . . . . . . . . . . . 8
+2.2.1 HandShake . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+2.2.2 Header . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+2.2.3 Pedido combustible . . . . . . . . . . . . . . . . . . . . . . 8
+2.2.4 Carga finalizada . . . . . . . . . . . . . . . . . . . . . . . 8
+2.3 Comunicaci´on Aeropuerto-Beacon . . . . . . . . . . . . . . . . . 9
+2.3.1 HandShake . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+2.3.2 Header . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+2.3.3 Pedido ruta . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+1
+2.3.4 Ruta . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+2.3.5 Aeropuerto desconocido . . . . . . . . . . . . . . . . . . . 10
+2.3.6 Cambio status . . . . . . . . . . . . . . . . . . . . . . . . 10
+2.3.7 Ok status . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+2.4 Comunicacion Beacon-Beacon . . . . . . . . . . . . . . . . . . . . 11
+2.4.1 HandShake . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.4.2 Header . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.4.3 Ping . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.4.4 Pong . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2.4.5 Discover . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+2.4.6 Found . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+3 Operaci´on 13
+3.1 Reglas de propagaci´on . . . . . . . . . . . . . . . . . . . . . . . . 13
+2
+1 Notas preliminares
+Para facilitar la lectura del protocolo el primer byte del tipo de mensage siempre
+referencia al origen del mismo seg´un el siguiente criterio:
+• 00:avi´on
+• 01:aeropuerto
+• 02:Estaci´on de recarga de combustible
+• 03:Beacon
+2 Estructuras
+2.1 Comunicaci´on Avi´on-Aeropuerto
+Los Aeropuertos se identifican con un codigo de 4 Bytes. Los aviones con uno
+de 6 bytes.
+2.1.1 HandShake
+El avi´on inicia la comunicaci´on a una IP y puerto que recibe por archivo de
+configuraci´on o por par´ametro. DEBE implementar las 2 metodolog´ıas, si el
+par´ametro est´a presente tiene prioridad.
+El hand shacke completo con el que se inicia la comunicaci´on es:
+AER: AeroPuerto Listo. Id: XXXX Protocolo v1.0\r\n
+AVN: Avion id: YYYYYY inciando comunicacion\r\n
+AER: Comunicacion aceptada\r\n
+o si el aeropuerto esta cerrado ,ya sea por mal tiempo o por algun otro motivo:
+AER: busy\r\n
+Nota: las siglas AER y AVN no forman parte del los mensajes, s´olo est´an
+para denotar quien los env´ıa.
+A partir de ese momento el socket que vincula al avi´on con el aeropuerto
+queda establecido hasta que el avi´on abandona el espacio a´ereo.
+2.1.2 Header
+0 3 4 5 6 9
+ID
+msg
+T
+i
+p
+o
+largo
+msg
+Figure 1: header
+3
+• ID msg (4): Es un identificador ´unico del mensaje en la red.
+• Tipo(2): Tipo de mensaje.
+• largo msg(4): Es el tama˜no del cuerpo del mensaje en bytes, no incluye
+este header.
+Nota: El n´umero que acompa˜na el nombre del campo es su tama˜no en bytes.
+2.1.3 Ingreso a terminal
+tipo: 0x0000
+largo msg: 0
+Los mensages de largo 0 no tienen cuerpo, son s´olo header.
+2.1.4 Ok ingreso aceptado
+tipo: 0x0100
+largo msg: 0
+Este mensaje es enviado por la torre de control en el momento que el avi´on es
+autorizado a ingresar a la terminal. Si el cupo est´a completo, el avi´on queda
+bloqueado hasta que se le permita el acceso.
+2.1.5 Pedido pista
+tipo: 0x0010
+largo msg: 0
+Este mensaje es utilizado para los aviones que aterrizan como para los que
+despegan y es respnsabilidad de la torre de control reconocer esta situaci´on y
+responder acordemente.
+2.1.6 pedido pista en emergencia
+tipo: 0x0012
+largo msg: 0
+Este mensaje es utilizado para los aviones que aterrizan en estado de emergencia.
+2.1.7 Pista otorgada
+tipo: 0x0110
+largo msg:0
+2.1.8 Pista cerrada
+tipo: 0x0111
+largo msg:4
+4
+0 3
+ID
+Aeropuerto
+Figure 2: pista cerrada
+• ID Aeropuerto (4): Es el id del aeropuerto a donde tiene que migrar el
+avi´on al recibir este mensaje.
+Para los aviones que est´an en tierra se le env´ıa con ID Aeropuerto= 0x0000
+2.1.9 Pedido combustible
+tipo: 0x0020
+largo msg:0
+2.1.10 Datos combustible
+tipo: 0x0120
+largo msg:6
+0 3 4 5
+IP Port
+Figure 3: datos combustible
+• IP (4): Direcci´on IP de la estaci´on de carga.
+• Port (2): Puerto.
+2.1.11 Pedido ruta
+tipo: 0x0030
+largo msg:4
+0 3
+ID
+Aeropuerto
+Figure 4: Pedido ruta
+• ID
+Aeropuerto (4): Identificador del aeropuerto del que se pide la ruta.
+5
+2.1.12 Ruta
+tipo: 0x0130
+largo msg: variable.
+El cuerpo de este mensaje es un array de la siguiente estructura, una fila por
+cada Aeropuerto que se debe atravesar (no es necesario aterrizar, salvo en caso
+de poco combustible) para llegar al pedido.
+0 3 4 7 8 9
+ID
+Aeropuerto IP Port
+Figure 5: elemento de array de ruta
+• ID Aeropuerto (4): Identificador del aeropuerto.
+• IP (4): IP del Aeropuerto.
+• Port (4): Port del Aeropuerto.
+2.1.13 Aeropuerto desconocido
+tipo: 0x0131
+largo msg:0
+2.1.14 Ingreso espacio a´ereo
+tipo: 0x0040
+largo msg: Variable
+#Aterr #Aero Combustible
+T
+i
+p
+o
+v.
+s
+e
+n
+t
+items
+v.
+indice
+v.
+viaje
+cant
+rutas
+ind
+rutas
+ID
+Aero IP Port
+Figure 6: ingreso espacio a´ereo
+• #Aterrizajes (2): Cantidad total de aeropuertos donde aterriz´o el avi´on.
+• #Aeropuertos (2): Cantidad total de aeropuertos cuyos espacios a´ereos
+atraves´o.
+6
+• Combustible (4): Galones de combustible en los tanques.
+• Tipo viaje (1): I,V o R, segun el viaje sea ida solo, ida y vuelta o ”Round
+Trip”.
+• sentida (1): I o V indica si el avi´on est´a efectuando el vuelo de ida o el de
+vuelta.
+• Items viaje (1): Cantidad de aeropuertos que componen el viaje del avi´on.
+• Indice viaje (1): indicador del viaje que se est´a efectando, 0 es earopuerto
+de salida.
+• viaje (n4): IDs de los aeropuertos que componen el viaje.
+• cantidad pasajeros (1): Pasajeros en el avi´on.
+• cantidad rutas (2): Cantidad de aeropuertos atravesados y los pr´oximos a
+atravesar.
+• ´ındice ruta(1): indicador del aeropuerto pr´oximo en la ruta.
+• ruta (m4): array de elementos de ruta. ver ruta (??)
+2.1.15 Abandono espacio a´ereo
+tipo: 0x0041
+largo msg:0
+2.1.16 Ok
+tipo: 0x0142
+largo msg:0
+7
+2.2 Comunicaci´on Avi´on-Estaci´on de combustible
+2.2.1 HandShake
+COM: Estaci´on de recarga Lista. Protocolo v1.0\r\n
+AVN: Avion id: YYYYYY solicita combustible\r\n
+COM: Esperando pedido\r\n
+2.2.2 Header
+0 3 4 5 6 9
+ID
+msg
+T
+i
+p
+o
+largo
+msg
+Figure 7: header
+• ID msg (4): Es un identificador ´unico del mensaje en la red.
+• Tipo(2): Tipo de mensaje.
+• largo msg(4): Es el tama˜no del cuerpo del mensaje en bytes, no incluye
+este header.
+2.2.3 Pedido combustible
+tipo: 0x0050
+largo msg:4
+0 3
+Galones
+Figure 8: Pedido combustible
+• Galones(4): Galones de combustible a cargar.
+2.2.4 Carga finalizada
+tipo: 0x0251
+largo msg:0
+8
+2.3 Comunicaci´on Aeropuerto-Beacon
+2.3.1 HandShake
+BCN: Becon ready ID XXXX. Protocolo v1.0\r\n
+AER: Aeropuerto ID YYYY conectandose\r\n
+BCN: Conexion OK\r\n
+2.3.2 Header
+0 3 4 5 6 9
+ID
+msg
+T
+i
+p
+o
+largo
+msg
+Figure 9: header
+• ID msg (4): Es un identificador ´unico del mensaje en la red.
+• Tipo(2): Tipo de mensaje.
+• largo msg(4): Es el tama˜no del cuerpo del mensaje en bytes, no incluye
+este header.
+2.3.3 Pedido ruta
+tipo: 0x0160
+largo msg:4
+0 3
+ID
+Aeropuerto
+Figure 10: Pedido ruta
+• ID
+Aeropuerto (4): Identificador del aeropuerto del que se pide la ruta.
+2.3.4 Ruta
+tipo: 0x0360
+largo msg: variable.
+El cuerpo de este mensaje es un array de la siguiente estructura, una fila por
+cada Aeropuerto que se debe atravesar (no es ncesario aterrizar, salvo en caso
+de poco combustible) para llegar al pedido.
+9
+0 3 4 7 8 9
+ID
+Aeropuerto IP Port
+Figure 11: elemento de array de ruta
+• ID Aeropuerto (4): Identificador del aeropuerto.
+• IP (4): IP del Aeropuerto.
+• Port (4): Port del Aeropuerto.
+2.3.5 Aeropuerto desconocido
+tipo: 0x0361
+largo msg:0
+2.3.6 Cambio status
+tipo: 0x0170
+largo msg:1
+0
+Status
+Figure 12: nuevo status
+El status puede ser
+• A: Abierto
+• C: Cerrado
+• D: con demoras
+2.3.7 Ok status
+tipo: 0x0370
+largo msg:0
+10
+2.4 Comunicacion Beacon-Beacon
+2.4.1 HandShake
+BCN1: Becon ready ID XXXX. Protocolo v1.0\r\n
+BCN2: Becon ID YYYY conectandose\r\n
+BCN1: Conexion OK.\r\n
+o BCN1: Conexion Rechazada, no hay puertos libres.\r\n
+2.4.2 Header
+0 15 16 17 18 19 23
+ID
+msg
+T
+i
+p
+o
+T
+T
+L
+H
+o
+p
+s
+largo
+msg
+Figure 13: header
+• ID msg (16): Es un identificador ´unico del mensaje en la red.
+• Tipo(1): Tipo de mensaje.
+• TTL(1): Time to live, al recibir un mensaje, el router debe restarle uno
+a este campo y en caso de ser mayor que 0 lo propaga; sino, descarta el
+mensaje.
+• Hops(1): Antes de propagar un mensaje, el router debe incrementar en
+uno el campo de hops, que representa la distincia en saltos recorrida por
+el mensaje.
+• largo msg(5): Es el tama˜no del cuerpo del mensaje en bytes, no incluye
+este header.
+Nota: El n´umero que acompa˜na el nombre del campo es su tama˜no en bytes.
+2.4.3 Ping
+tipo: 0x0380
+largo msg:
+2.4.4 Pong
+tipo: 0x0381
+largo msg: 24
+En el header de este mensaje el ID msg debe tener el ID msg del mensaje Ping
+al cual se hace referencia.
+• id Router(4): Identificador del Beacon.
+11
+0 3 4 7 8 9
+ID
+Beacon
+ip
+p
+o
+r
+t
+Figure 14: Pong
+• IP(4): Direccion IP del router.
+• Port(2): Puerto TCP donde el router ”escucha” nuevas conecciones.
+El mensaje retorna al origen siguiendo la ruta del mensaje discover
+2.4.5 Discover
+tipo: 0x0382
+largo msg:4
+0 3
+ID
+Aeropuerto
+Figure 15: Pedido ruta
+• ID
+Aeropuerto (4): Identificador del aeropuerto a buscar.
+2.4.6 Found
+tipo: 0x0384
+largo msg: variable.
+El cuerpo de este mensaje es un array de la siguiente estructura, una fila por
+cada Aeropuerto que se debe atravesar (no es ncesario aterrizar, salvo en caso
+de poco combustible) para llegar al pedido.
+0 3 4 7 8 11 12 13
+ID
+Beacon
+ID
+Aeropuerto IP Port
+Figure 16: elemento de array de ruta
+• ID Beacon (4): Identificador del Beacon.
+• ID Aeropuerto (4): Identificador del aeropuerto.
+• IP (4): IP del Aeropuerto.
+12
+• Port (4): Port del Aeropuerto.
+En el header de este mensaje el ID msg debe tener el ID msg del mensaje
+Ping al cual se hace referencia. El mensaje retorna al origen siguiendo la ruta
+del mensaje discover. Cada Beacon que atraviesa le agrega sus datos en el array,
+recalcula el largo del mensaje y lo propaga.
+3 Operaci´on
+3.1 Reglas de propagaci´on
+1. Un Beacon propagar´a los mensajes tipo Ping y Discover a todos los Becons
+conectados directamente, excepto al que entreg´o dicho mensaje.
+2. Los mensajes tipo Pong y Found s´olo deben ser devueltos por el mismo
+camino por el que viaj´o el mensaje inicial asociado.
+3. Los mensajes duplicados se desechan.
+4. Un Beacon decrementar´a en 1 el valor del campo TTL de un mensaje
+e incrementar´a el valor del campo Hops en 1 antes de propagar dicho
+mensaje por las conexiones pertinentes. Si al decrementar el valor de TTL
+el resultado obtenido es cero, debe desechar el mensaje y NO propagarlo.
+13

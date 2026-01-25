@@ -1,0 +1,90 @@
+Trabajo Práctico 1er Cuatrimestre 2004 
+Cátedra de Sistemas Operativos
+
+X-Wings
+Aclaraciones y Observaciones
+
+Resumen de este documento
+Este documento contiene aclaraciones sobre algunos puntos del trabajo Práctico que han surgido de las consultas de los alumnos. Tiene como objetivo principal explicar los conceptos que generaron dichas dudas.
+Un cambio importante sobre el concepto de pista es introducido en este documento. Este cambio AFECTA a la entrega a realizarse el 22 de mayo de 2004.
+
+Objetivos de este documento.
+Este documento tiene como objetivo aclarar conceptos que han generado dudas en los alumnos y que han motivado a consultas diversas. El documento esta dividido en 4 partes:
+1 – Arquitectura del trabajo Práctico:
+Contiene las aclaraciones correspondientes a la sección de  Arquitectura del trabajo Práctico donde se aclaran los conceptos de pista, punto de reabastecimiento, hangar y rutas.
+2 – Entregas
+Contiene las modificaciones sobre entregas en funcion de consultas de los alumnos.
+3 – Anexo
+Contiene las modificaciones sobre el concepto de terminales.
+ 
+Arquitectura del Práctico
+Torre de Aeropuerto (o Aeropuerto). 
+Debera implementarse como un proceso.
+Avión. 
+Debera implementarse como un proceso.
+Hangar. (RECURSO DE LA TORRE).
+El hangar es un recurso de la torre de control al igual que las pistas de aterrizaje/despegue. Es decir, que desde el proceso Torre de Control se puede tener el reurso hangar que sea quien crea los aviones. Sin embargo, si se ha implementado el hangar como un proceso, los aviones deberan ser creados desde dicho proceso hangar, y el proceso avion generado debera comunicarse con la torre de control correspondiente. AMBAS opciones son validas.
+
+Pista. (RECURSO DE LA TORRE DE CONTROL)
+Un aeropuerto consiste de una a n pistas, determinadas por archivo de configuración. Cada una de ellas tendra una función particular. Las funciones pueden ser: Pista solo para despegue, Pista solo para aterrizaje o Pista para despegue/aterrizaje.
+El uso de la pista estará reglamentado según si tiene aviones para despegue o para aterrizaje. La torre del aeropuerto es la encargada de encolar los aviones y ASIGNAR las pistas. La planificación de la asignación de las pistas se hará según alternancia estricta entre la cola de los aviones que deben despegar y los que deben aterrizar, según el siguiente diagrama.
+Se tiene una cantidad de aviones que requieren utilizar las pistas. En este ejemplo, el aeropuerto constituye de 4 pistas, 1 de despegue solamente, 1 de aterrizaje solamente y 2 compartidas. En el caso de pista de aterrizaje / despegue solo se puede tener un único avión operando (o aterriza o despega, pero no pueden haber dos).  El aeropuerto asignara los aviones a cada cola en funcion del uso que le daran y de acuerdo a la alternancia estrica de las pistas, es decir, de acuerdo al ejemplo:
+Llega el pedido del avión 1, este desea aterrizar, el aeropuerto entonces buscara la primera pista de aterrizaje disponible. Lo asigna a la pista 1. Lo encola en esta pista. 
+Llega el pedido del avión 2, este desea aterrizar, pero ya asigno un avion a la pista 1, entonces busca la proxima pista de aterrizaje, que es la dos. Y asi sucesivamente con los aviones que deseen aterrizar. Se ira alternando la asignación de las pistas de aterrizaje.
+Ahora, llega el pedido del avión 3, este desea despegar, la primera pista de despegue habilitada es la pista 2. Entonces, aun cuando hay un avion encolado para aterrizar, el tercer avion es tambien encolado en la pista 2, quedando esta con dos aviones para operar.
+La llegada del 4to avión hara que el aeropuerto le asigne la pista 3, y asi sucesivamente, hasta que todas las pistas de despegue hayan sido utilizadas, en ese caso, se vuelve a utilizar la primera y se comienza nuevamente el ciclo de asignación.
+Las pistas NO planifican sus colas de acuerdo a algoritmos. Simplemente usan FIFO. El tiempo que demora cada avión en aterrizar o despegar se debe ingresar por archivo de configuración y es el mismo para todos los aviones y para todas las pistas, tanto para aterrizar como para despegar.
+Las colas en el ejemplo quedaran:
+	Pista 1: Avión 1, Avión 7.
+	Pista 2: Avión 2, Avión 3.
+	Pista 3: Avión 4
+	Pista 4: Avión 5, Avión 6.
+Los aviones en transito, aterrizan, realizan recarga de combustible y vuelven a despegar hacia la siguiente escala (se reencolan).
+
+Punto de reabastecimiento. (PROCESO).
+El punto de abastecimiento es el lugar donde los aviones cargan combustible. Cuando un avión necesita cargar combustible, éste le envía un mensaje a la torre del aeropuerto quien actualiza el estado del avión a  refueling. Luego el avión le enviá un mensaje al punto de reabastecimiento para solicitar la carga del combustible. Cada punto de reabastecimiento estara conformado por 1 o n cisternas, siguiendo un esquema como el siguiente diagrama:
+
+La planificación del uso de las cisternas se hará según el algoritmo RR (n unidades de tiempo para cada avión), FIFO o SRT, según la configuración seleccionada. Una vez finalizada la carga el punto de abastecimiento le informa al avión la conclusión, el avión debe luego pedirle pista al aeropuerto para poder seguir viaje (se reencolan).
+Este esquema es similar al de una estación de servicio de gas para automóviles, donde hay una estación con varios surtidores, y una única cola de autos. A medida que los surtidores se van vaciando, un nuevo auto es atendido. Este concepto es el que se debe aplicar en este trabajo.
+Sobre esta idea se debe aclarar que:
+	En el archivo de configuración del punto de abastecimiento se debe indicar la cantidad de cisternas del punto, el quantum del punto de reabastecimiento, la cantidad de galones que se cargan por quantum y el planificador utilizado.
+	La operación es independiente para cada cisterna, es decir, si una cisterna termina la carga antes que otra, esta recibirá un nuevo avión y la operación se reiniciara, independientemente de lo que este realizando resto de los cisternas.  
+	El avión que se encuentra en el punto de reabastecimiento NO corta su comunicación con la torre de control (i.e. no cierra el socket con la misma).
+	Cada punto de reabastecimiento debe tener un Log propio y CLARO de la situación del mismo en cada estado, siguiendo las reglas de log establecidas en este trabajo.
+	Una cisterna puede o no ser proceso, esa decisión de diseño queda a cargo del grupo.
+	Existe UN ÚNICO punto de reabastecimiento por aeropuerto.
+	El proceso avión, una vez realizado el pedido de abastecimiento, queda a la espera de la respuesta de las cisternas (carga completa). No se entera de cómo los cisternas manejan su carga de combustible.
+	La planificación del punto de abastecimiento se debe poder cambiar en tiempo de ejecución.
+
+Viaje
+ Es la lista de aeropuertos en los que el avion debe aterrizar para subir y bajar pasajeros. El viaje es un subconjunto de la ruta. 
+Ruta 
+Es el “camino” que debe cumplir un proceso avión, o sea, los espacios aereos por donde el avión debera pasar. Las rutas estarán establecidas por un aeropuerto destino y un aeropuerto origen. Cada proceso avión tiene un viaje establecido (puede ser por archivo de configuración) y deberá solicitar el camino para llegar al destino. El avión no esta obligado a aterrizar por los aeropuertos de dicho espacio aereo, salvo que se encontrase en emergencia.
+
+Beacon
+Son procesos marcadores de dirección. Existen por si solos en cualquier máquina como un proceso y puede ser utilizado por los aeropuertos para conocer la ruta hacia un aeropuerto. Sirve para que los aviones puedan volar entre los espacios aéreos de los diferentes aeropuertos (sería similar al concepto de un gateway en la red).
+ 
+Entregas.
+Entrega N# 7: Emergencias.
+La ultima entrega de este trabajo práctico consiste en el concepto de emergencia y enrutamiento hacia otros aeropuertos.
+Para ello, el proceso Aeropuerto puede cambiar el estado de la Pista de Aterrizaje a uno de no disponible. En este estado, la misma se encuentra inoperable y los aviones no podrán ni despegar ni aterrizar. 
+Si un aeropuerto tiene todas sus pistas no disponibles deberá solicitar el aeropuerto donde se derivaran los aviones que tiene para aterrizar. Un pista no disponible NO implica llena. Si el aeropuerto tiene sus pistas llenas puede continuar recibiendo aviones. 
+Además si un aeropuerto se encuentra en alerta meteorológica, todos los aviones que deseen circular por la región no podrán hacerlo. Ante esta imposibilidad el avión debe solicitarle al aeropuerto donde se encuentren una nueva ruta a su destino.
+Cuando una aeropuerto se encuentra en emergencia, NO contestará mensajes discover o found destinados al mismo, sin embargo, siempre propagara los ping y pong.
+Todo lo referente a parámetros debe ser tomado de un archivo de configuración el cual debe ser procesado al iniciar el proceso. Esto se debe respetar para todas las entregas.
+Es requisito que graben en un archivo Log todos los eventos sucedidos para su posterior análisis y/o depuración y respetar las N.O.T.E.E.F. (Ver Anexo: N.O.T.E.E.F.).
+El archivo Log deberá respetar el formato establecido por la cátedra (Ver Anexo: Archivo  Log).
+
+Entrega 7 – Emergencias
+Tiempo Estimado: 7 días
+Fecha de Entrega: 10/07/2004
+Modalidad: No Obligatoria
+
+Anexo
+Terminales
+Se considera un avión que entra o se encuentra en Terminal:
+•	Cuando se acepta un Pedido de ingreso (Se responde) a Terminal
+•	Cuando hay un OK de pista de aterrizaje.
+Se considera un avión que sale o se retira de la Terminal:
+•	Cuando un proceso avión sale hacia el punto de abastecimiento
+•	Cuando hay un OK de despegue (que no corresponde a un avión que fue a punto de abastecimiento).
