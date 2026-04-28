@@ -203,3 +203,63 @@
 [2026-01-25 18:15:12] [P12345] [INFO] Fuel station response: COM: Esperando pedido
 
 [2026-01-25 18:15:12] [P12345] [EVENT] Requested 3000 gallons of fuel
+[2026-01-25 18:17:43] [P12345] [EVENT] Fuel loading complete
+[2026-01-25 18:17:43] [P12345] [INFO] Requested runway for takeoff
+[2026-01-25 18:17:43] [P12345] [EVENT] Runway granted, taking off
+[2026-01-25 18:17:44] [P12345] [EVENT] Left airspace
+[2026-01-25 18:17:44] [P12345] [EVENT] Flying to airport 2000 (stop 2/3)
+[2026-01-25 18:17:44] [P12345] [INFO] Airport says: AER: AeroPuerto Listo. Id: A123 Protocolo v1.0
+
+[2026-01-25 18:17:44] [P12345] [INFO] Airport response: AER: Comunicacion aceptada
+
+[2026-01-25 18:17:44] [P12345] [EVENT] Connected to airport successfully
+[2026-01-25 18:17:44] [P12345] [INFO] Requested terminal entry
+[2026-01-25 18:17:44] [P12345] [EVENT] Terminal entry granted
+[2026-01-25 18:17:44] [P12345] [INFO] Requested runway for landing
+[2026-01-25 18:17:45] [P12345] [EVENT] Runway granted, landing
+[2026-01-25 18:17:46] [P12345] [INFO] In transit, refueling (current: 7500 gallons)
+[2026-01-25 18:17:46] [P12345] [INFO] Requested fuel station info
+[2026-01-25 18:17:46] [P12345] [INFO] Fuel station at 127.0.0.1:8091
+[2026-01-25 18:17:46] [P12345] [INFO] Fuel station says: COM: Estacion de recarga Lista. Protocolo v1.0
+
+[2026-01-25 18:17:46] [P12345] [INFO] Fuel station response: COM: Esperando pedido
+
+[2026-01-25 18:17:46] [P12345] [EVENT] Requested 3000 gallons of fuel
+[2026-01-25 18:20:17] [P12345] [EVENT] Fuel loading complete
+[2026-01-25 18:20:17] [P12345] [INFO] Requested runway for takeoff
+[2026-01-25 18:20:17] [P12345] [EVENT] Runway granted, taking off
+[2026-01-25 18:20:18] [P12345] [EVENT] Left airspace
+[2026-01-25 18:20:18] [P12345] [EVENT] Flying to airport 3000 (stop 3/3)
+[2026-01-25 18:20:18] [P12345] [INFO] Airport says: AER: AeroPuerto Listo. Id: A123 Protocolo v1.0
+
+[2026-01-25 18:20:18] [P12345] [INFO] Airport response: AER: Comunicacion aceptada
+
+[2026-01-25 18:20:18] [P12345] [EVENT] Connected to airport successfully
+[2026-01-25 18:20:18] [P12345] [INFO] Requested terminal entry
+[2026-01-25 18:20:18] [P12345] [EVENT] Terminal entry granted
+[2026-01-25 18:20:18] [P12345] [INFO] Requested runway for landing
+[2026-01-25 18:20:19] [P12345] [EVENT] Runway granted, landing
+[2026-01-25 18:20:20] [P12345] [EVENT] Left airspace
+[2026-01-25 18:20:20] [P12345] [EVENT] Journey complete!
+[2026-01-25 18:20:20] [P12345] [INFO] Logger closing
+[2026-01-25 18:22:03] [P12345] [INFO] Logger initialized for P12345
+[2026-01-25 18:22:03] [P12345] [INFO] Plane P12345 starting
+[2026-01-25 18:22:03] [P12345] [INFO] Journey: 3 airports, Trip type: I
+[2026-01-25 18:22:03] [P12345] [EVENT] Flying to airport 1000 (stop 1/3)
+[2026-01-25 18:22:03] [P12345] [INFO] Airport says: AER: AeroPuerto Listo. Id: A123 Protocolo v1.0
+
+[2026-01-25 18:22:03] [P12345] [INFO] Airport response: AER: Comunicacion aceptada
+
+[2026-01-25 18:22:03] [P12345] [EVENT] Connected to airport successfully
+[2026-01-25 18:22:03] [P12345] [INFO] Requested terminal entry
+[2026-01-25 18:22:03] [P12345] [EVENT] Terminal entry granted
+[2026-01-25 18:22:03] [P12345] [INFO] Requested runway for landing
+[2026-01-25 18:22:03] [P12345] [EVENT] Runway granted, landing
+[2026-01-25 18:22:04] [P12345] [INFO] In transit, refueling (current: 5000 gallons)
+[2026-01-25 18:22:04] [P12345] [INFO] Requested fuel station info
+[2026-01-25 18:22:04] [P12345] [INFO] Fuel station at 127.0.0.1:8091
+[2026-01-25 18:22:04] [P12345] [INFO] Fuel station says: COM: Estacion de recarga Lista. Protocolo v1.0
+
+[2026-01-25 18:22:04] [P12345] [INFO] Fuel station response: COM: Esperando pedido
+
+[2026-01-25 18:22:04] [P12345] [EVENT] Requested 3000 gallons of fuel

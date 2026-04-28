@@ -205,3 +205,55 @@
 [2026-01-25 18:15:12] [A123] [EVENT] Plane P12345 requesting fuel station info
 [2026-01-25 18:15:12] [A123] [INFO] Sent fuel station info to plane P12345
 [2026-01-25 18:15:14] [A123] [EVENT] Runway 0 operation complete for plane P12345
+[2026-01-25 18:17:43] [A123] [EVENT] Plane P12345 requesting runway (takeoff, normal)
+[2026-01-25 18:17:43] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 18:17:43] [A123] [EVENT] Runway 1 granted to plane P12345 (takeoff)
+[2026-01-25 18:17:44] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 18:17:44] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 18:17:44] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 18:17:44] [A123] [INFO] New client connected from 127.0.0.1:50231
+[2026-01-25 18:17:44] [A123] [INFO] Sent handshake to client
+[2026-01-25 18:17:44] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 18:17:44] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 18:17:44] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 18:17:44] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 18:17:44] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 18:17:44] [A123] [EVENT] Plane P12345 enqueued to runway 1 (queue size: 1)
+[2026-01-25 18:17:45] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 18:17:45] [A123] [EVENT] Runway 1 granted to plane P12345 (landing)
+[2026-01-25 18:17:46] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 18:17:46] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 18:17:48] [A123] [EVENT] Runway 1 operation complete for plane P12345
+[2026-01-25 18:20:17] [A123] [EVENT] Plane P12345 requesting runway (takeoff, normal)
+[2026-01-25 18:20:17] [A123] [EVENT] Plane P12345 enqueued to runway 2 (queue size: 1)
+[2026-01-25 18:20:17] [A123] [EVENT] Runway 2 granted to plane P12345 (takeoff)
+[2026-01-25 18:20:18] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 18:20:18] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 18:20:18] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 18:20:18] [A123] [INFO] New client connected from 127.0.0.1:50240
+[2026-01-25 18:20:18] [A123] [INFO] Sent handshake to client
+[2026-01-25 18:20:18] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 18:20:18] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 18:20:18] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 18:20:18] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 18:20:18] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 18:20:18] [A123] [EVENT] Plane P12345 enqueued to runway 2 (queue size: 1)
+[2026-01-25 18:20:19] [A123] [EVENT] Runway 2 operation complete for plane P12345
+[2026-01-25 18:20:19] [A123] [EVENT] Runway 2 granted to plane P12345 (landing)
+[2026-01-25 18:20:20] [A123] [EVENT] Plane P12345 leaving airspace
+[2026-01-25 18:20:20] [A123] [INFO] Plane P12345 departed, terminal count: 0
+[2026-01-25 18:20:20] [A123] [INFO] Plane P12345 disconnected
+[2026-01-25 18:20:22] [A123] [EVENT] Runway 2 operation complete for plane P12345
+[2026-01-25 18:22:03] [A123] [INFO] New client connected from 127.0.0.1:50249
+[2026-01-25 18:22:03] [A123] [INFO] Sent handshake to client
+[2026-01-25 18:22:03] [A123] [INFO] Received handshake from plane P12345
+[2026-01-25 18:22:03] [A123] [EVENT] Accepted connection from plane P12345
+[2026-01-25 18:22:03] [A123] [EVENT] Plane P12345 requesting terminal entry
+[2026-01-25 18:22:03] [A123] [EVENT] Granted terminal entry to plane P12345 (count: 1)
+[2026-01-25 18:22:03] [A123] [EVENT] Plane P12345 requesting runway (landing, normal)
+[2026-01-25 18:22:03] [A123] [EVENT] Plane P12345 enqueued to runway 0 (queue size: 1)
+[2026-01-25 18:22:03] [A123] [EVENT] Runway 0 granted to plane P12345 (landing)
+[2026-01-25 18:22:04] [A123] [EVENT] Plane P12345 requesting fuel station info
+[2026-01-25 18:22:04] [A123] [INFO] Sent fuel station info to plane P12345
+[2026-01-25 18:22:06] [A123] [EVENT] Runway 0 operation complete for plane P12345
+[2026-01-25 18:22:13] [A123] [INFO] Plane P12345 disconnected
